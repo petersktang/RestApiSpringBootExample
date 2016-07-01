@@ -10,7 +10,7 @@ import com.jordanec.restbootexample.client.ServiceGenerator;
 import com.jordanec.restbootexample.model.Confederation;
 import com.jordanec.restbootexample.model.Country;
 import com.jordanec.restbootexample.model.Status;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class ConfederationTest {
 	private ConfederationApi confederationApi;
@@ -36,8 +36,8 @@ public class ConfederationTest {
 		Call<Confederation> call = confederationApi.readConfederation(idConfederation);
 
 		try {
-			retrofit.Response<Confederation> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Confederation> response = call.execute();
+			if (response.isSuccessful()) {
 				Confederation confederation = response.body();
 				System.out.println("idConfederation: " + confederation.getIdConfederation() + " name:"
 						+ confederation.getName());
@@ -58,8 +58,8 @@ public class ConfederationTest {
 		Call<Status> call = confederationApi.createConfederation(confederation);
 
 		try {
-			retrofit.Response<Status> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Status> response = call.execute();
+			if (response.isSuccessful()) {
 				Status status = response.body();
 				System.out.println(
 						"status.getCode() = " + status.getCode() + "\nstatus.getMessage() = " + status.getMessage());
@@ -82,8 +82,8 @@ public class ConfederationTest {
 		Call<Status> call = confederationApi.updateConfederation(confederation, idConfederation);
 
 		try {
-			retrofit.Response<Status> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Status> response = call.execute();
+			if (response.isSuccessful()) {
 				Status status = response.body();
 				System.out.println(
 						"status.getCode()=" + status.getCode() + "\nstatus.getMessage()=" + status.getMessage());
@@ -103,8 +103,8 @@ public class ConfederationTest {
 		Call<Status> call = confederationApi.deleteConfederation(idConfederation);
 
 		try {
-			retrofit.Response<Status> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Status> response = call.execute();
+			if (response.isSuccessful()) {
 				Status status = response.body();
 				System.out.println(
 						"status.getCode() = " + status.getCode() + "\nstatus.getMessage() = " + status.getMessage());
@@ -124,8 +124,8 @@ public class ConfederationTest {
 		Call<Collection<Confederation>> call = confederationApi.listConfederations();
 
 		try {
-			retrofit.Response<Collection<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Collection<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				Collection<Confederation> confederations = response.body();
 				Iterator<Confederation> iterator = confederations.iterator();
 				Confederation confederation;
@@ -151,8 +151,8 @@ public class ConfederationTest {
 		Call<Confederation> call = confederationApi.findByName(name);
 
 		try {
-			retrofit.Response<Confederation> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Confederation> response = call.execute();
+			if (response.isSuccessful()) {
 				Confederation confederation = response.body();
 				System.out.println("idConfederation: " + confederation.getIdConfederation() + " name:"
 						+ confederation.getName());
@@ -173,8 +173,8 @@ public class ConfederationTest {
 		Call<Collection<Country>> call = confederationApi.readConfederationCountries(idConfederation);
 
 		try {
-			retrofit.Response<Collection<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Collection<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				Collection<Country> confederationCountries = response.body();
 				System.out.println("idConfederation: "+idConfederation);
 				

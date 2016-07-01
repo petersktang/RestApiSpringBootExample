@@ -11,7 +11,7 @@ import com.jordanec.restbootexample.model.Team;
 import com.jordanec.restbootexample.model.Player;
 import com.jordanec.restbootexample.model.Country;
 import com.jordanec.restbootexample.model.Status;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class CountryTest {
 	private CountryApi countryApi;
@@ -35,8 +35,8 @@ public class CountryTest {
 		Call<Country> call = countryApi.readCountry(idCountry);
 
 		try {
-			retrofit.Response<Country> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Country> response = call.execute();
+			if (response.isSuccessful()) {
 				Country country = response.body();
 				System.out.println("idCountry: " + country.getIdCountry() + " name:" + country.getName());
 				return country;
@@ -58,8 +58,8 @@ public class CountryTest {
 		Call<Status> call = countryApi.createCountry(country);
 
 		try {
-			retrofit.Response<Status> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Status> response = call.execute();
+			if (response.isSuccessful()) {
 				Status status = response.body();
 				System.out.println("status.getCode()=" + status.getCode() + country.getName() + "\nstatus.getMessage()="
 						+ status.getMessage());
@@ -82,8 +82,8 @@ public class CountryTest {
 		Call<Status> call = countryApi.updateCountry(country, idCountry);
 
 		try {
-			retrofit.Response<Status> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Status> response = call.execute();
+			if (response.isSuccessful()) {
 				Status status = response.body();
 				System.out.println("status.getCode()=" + status.getCode() + country.getName() + "\nstatus.getMessage()="
 						+ status.getMessage());
@@ -103,8 +103,8 @@ public class CountryTest {
 		Call<Status> call = countryApi.deleteCountry(idCountry);
 
 		try {
-			retrofit.Response<Status> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Status> response = call.execute();
+			if (response.isSuccessful()) {
 				Status status = response.body();
 				System.out.println("status.getCode()=" + status.getCode() + "idCountry: " + idCountry
 						+ "\nstatus.getMessage()=" + status.getMessage());
@@ -124,8 +124,8 @@ public class CountryTest {
 		Call<Collection<Country>> call = countryApi.listCountries();
 
 		try {
-			retrofit.Response<Collection<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Collection<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				Collection<Country> countries = response.body();
 				Iterator<Country> iterator = countries.iterator();
 				Country country;
@@ -150,8 +150,8 @@ public class CountryTest {
 		Call<Country> call = countryApi.findByName(name);
 
 		try {
-			retrofit.Response<Country> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Country> response = call.execute();
+			if (response.isSuccessful()) {
 				Country country = response.body();
 				System.out.println("idCountry: " + country.getIdCountry() + " name:" + country.getName());
 				return true;
@@ -170,8 +170,8 @@ public class CountryTest {
 		Call<Collection<Team>> call = countryApi.readCountryTeams(idCountry);
 
 		try {
-			retrofit.Response<Collection<Team>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Collection<Team>> response = call.execute();
+			if (response.isSuccessful()) {
 				Collection<Team> countryTeams = response.body();
 				System.out.println("idCountry: " + idCountry);
 
@@ -198,8 +198,8 @@ public class CountryTest {
 		Call<Collection<Player>> call = countryApi.readCountryPlayers(idCountry);
 
 		try {
-			retrofit.Response<Collection<Player>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Collection<Player>> response = call.execute();
+			if (response.isSuccessful()) {
 				Collection<Player> countryPlayers = response.body();
 				System.out.println("idCountry: " + idCountry);
 
@@ -226,8 +226,8 @@ public class CountryTest {
 		Call<Confederation> call = countryApi.readCountryConfederation(idCountry);
 
 		try {
-			retrofit.Response<Confederation> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<Confederation> response = call.execute();
+			if (response.isSuccessful()) {
 				Confederation countryConfederation = response.body();
 				System.out.println("idConfederation: " + countryConfederation.getIdConfederation() + " name:"
 						+ countryConfederation.getName());

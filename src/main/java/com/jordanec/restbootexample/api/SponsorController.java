@@ -14,9 +14,9 @@ import com.jordanec.restbootexample.model.*;
 import com.jordanec.restbootexample.repository.*;
 import com.jordanec.restbootexample.util.Constants;
 
-import retrofit.Call;
-import retrofit.http.GET;
-import retrofit.http.Path;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 import com.google.common.collect.*;
 

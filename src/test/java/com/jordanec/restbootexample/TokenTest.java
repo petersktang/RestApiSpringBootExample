@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import com.jordanec.restbootexample.client.ServiceGenerator;
 import com.jordanec.restbootexample.client.TokenApi;
 
-import retrofit.Call;
+import retrofit2.Call;
 
 public class TokenTest {
 	private TokenApi tokenApi;
@@ -43,8 +43,8 @@ public class TokenTest {
 		Call<LinkedHashMap<String, String>> call = getTokenApi().requestToken();
 
 		try {
-			retrofit.Response<LinkedHashMap<String, String>> response = call.execute();
-			if (response.isSuccess())
+			retrofit2.Response<LinkedHashMap<String, String>> response = call.execute();
+			if (response.isSuccessful())
 				setTokens(response.body());
 
 			System.out.println("response.message() = " + response.message());
